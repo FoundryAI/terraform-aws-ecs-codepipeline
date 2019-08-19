@@ -4,7 +4,7 @@ locals {
 
 module "codepipeline_label" {
   source     = "github.com/cloudposse/terraform-terraform-label.git?ref=0.2.1"
-  attributes = ["${compact(concat(var.attributes, list("codepipeline")))}"]
+  attributes = ["codepipeline"]
   delimiter  = "${var.delimiter}"
   name       = "${var.name}"
   namespace  = "${var.namespace}"
@@ -21,7 +21,7 @@ resource "aws_s3_bucket" "default" {
 
 module "codepipeline_assume_label" {
   source     = "github.com/cloudposse/terraform-terraform-label.git?ref=0.2.1"
-  attributes = ["${compact(concat(var.attributes, list("codepipeline", "assume")))}"]
+  attributes = ["codepipeline", "assume"]
   delimiter  = "${var.delimiter}"
   name       = "${var.name}"
   namespace  = "${var.namespace}"
@@ -91,7 +91,7 @@ resource "aws_iam_role_policy_attachment" "s3" {
 
 module "codepipeline_s3_policy_label" {
   source     = "github.com/cloudposse/terraform-terraform-label.git?ref=0.2.1"
-  attributes = ["${compact(concat(var.attributes, list("codepipeline", "s3")))}"]
+  attributes = ["codepipeline", "s3"]
   delimiter  = "${var.delimiter}"
   name       = "${var.name}"
   namespace  = "${var.namespace}"
@@ -131,7 +131,7 @@ resource "aws_iam_role_policy_attachment" "codebuild" {
 
 module "codebuild_label" {
   source     = "github.com/cloudposse/terraform-terraform-label.git?ref=0.2.1"
-  attributes = ["${compact(concat(var.attributes, list("codebuild")))}"]
+  attributes = ["codebuild"]
   delimiter  = "${var.delimiter}"
   name       = "${var.name}"
   namespace  = "${var.namespace}"
